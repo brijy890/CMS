@@ -4,28 +4,36 @@
 if (isset($_GET['edit'])) {
     $update_cat_id = $_GET['edit'];
 
-    $query = "SELECT * FROM categories WHERE cat_id = {$update_cat_id} ";
-    $update_cat_id = mysqli_query($connection, $query);
+    $stmt = mysqli_prepare($connection, "SELECT cat_id, cat_title FROM categories WHERE cat_id = ? ");
+    mysqli_stmt_bind_param($stmt, 'i', $update_cat_id);
+    mysqli_stmt_execute($stmt);
 
-    while ($row = mysqli_fetch_assoc($update_cat_id)) {
-    $cat_title = $row['cat_title'];
-}
+    mysqli_stmt_bind_result($stmt, $cat_id, $cat_title);
+
+    while(mysqli_stmt_fetch($stmt)){
+         $cat_title;
+    }
+   
 ?>
 
 
 <?php } ?>
 
 <?php // Updete categories
-if (isset($_POST['update_categorie'])) {
-$update_cat_title = $_POST['cat_title'];
+    if (isset($_POST['update_categorie'])) {
+        $update_cat_title = $_POST['cat_title'];
 
-$query = "UPDATE categories SET cat_title = '{$update_cat_title}' WHERE cat_id = {$cat_id} ";
-$update_query = mysqli_query($connection,$query);
+        $stmt = mysqli_prepare($connection, "UPDATE categories SET cat_title = ? WHERE cat_id = ? ");
+        mysqli_stmt_bind_param($stmt, 'si', $update_cat_title, $cat_id);
+        mysqli_stmt_execute($stmt);
 
-if (!$update_query) {
-die("QUERY FEILED ".mysqli_error($connection));
-}
-}
+        if (!$stmt) {
+        die("QUERY FEILED ".mysqli_error($connection));
+        }
+
+        redirect("categories.php");
+        mysqli_stmt_close($stmt);
+    }
 ?>
 
 <!-- Update Category Form -->

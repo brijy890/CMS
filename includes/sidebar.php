@@ -27,8 +27,6 @@
 
                 if (isset($_SESSION['user_role'])) {
 
-                if ($_SESSION['user_role'] === 'admin') {
-
                 ?>
 
                 <div class="well">
@@ -52,7 +50,7 @@
 
 
 
-                <?php } 
+                <?php 
             
             } else {
 

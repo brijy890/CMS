@@ -54,7 +54,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#posts-dropdown"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="posts-dropdown" class="collapse">
                             <li>
-                                <a href="posts.php">View All Posts</a>
+                                <a href="posts.php?source=view_all_posts">View All Posts</a>
                             </li>
                             <li>
                                 <a href="posts.php?source=add_post">Add Posts</a>
@@ -73,7 +73,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#Categories-dropdown"><i class="fa fa-fw fa-arrows-v"></i>Users<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="Categories-dropdown" class="collapse">
                             <li>
-                                <a href="./users.php">View All Users</a>
+                                <a href="./users.php?source=view_all_users">View All Users</a>
                             </li>
                             <li>
                                 <a href="users.php?source=add_user">Add user</a>

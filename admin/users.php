@@ -2,6 +2,15 @@
 <?php include "includes/admin_header.php"; ?>
     <div id="wrapper">
 
+
+        <?php
+
+        if (!is_admin($_SESSION['username'])) {
+            
+            header("Location: index.php");
+        }
+
+        ?>
         <!-- Navigation -->
         <?php include "includes/admin_navigation.php"; ?>
         <!-- /.navbar-collapse -->
@@ -20,6 +29,7 @@
                         </h1>
                         <?php 
                         if (isset($_GET['source'])) {
+
                             $source = $_GET['source'];
                         }
 
@@ -34,7 +44,6 @@
                             
                             default:
                                 include "includes/view_all_users.php";
-                                break;
                         }
 
                         ?>

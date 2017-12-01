@@ -166,10 +166,27 @@ $query .= "LEFT JOIN categories ON posts.post_categorie_id = categories.cat_id O
 
         echo "<td><a href='posts.php?reset_views=$post_id'>{$post_view_count}</a></td>";
         echo "<td>{$post_date}</td>";
-        echo "<td><a href='../post.php?p_id=$post_id'>View Post</a></td>";
-        echo "<td><a rel='$post_id' href='javascript:void(0)' class='delete_link'>Delete</a></td>";
-        // echo "<td><a onClick=\" javascript: return confirm('Are you sure want to delete?');\"href='posts.php?delete={$post_id}'>Delete</a></td>";
-        echo "<td><a href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>";
+        echo "<td><a class='btn btn-primary' href='../post.php?p_id=$post_id'>View Post</a></td>";
+
+        ?>
+
+        <form action="" method="post">
+            <input type="hidden" value="<?php echo $post_id; ?>" name="post_id">
+        <?php
+            echo "<td><input class='btn btn-danger' type='submit' name='delete' value='Delete'></td>"
+        ?>
+        </form>
+
+        <?php
+
+
+        // echo "<td><a rel='$post_id' href='javascript:void(0)' class='delete_link'>Delete</a></td>";
+
+
+
+
+
+        echo "<td><a class='btn btn-info' href='posts.php?source=edit_post&p_id={$post_id}'>Edit</a></td>";
         echo "</tr>";
         }
 

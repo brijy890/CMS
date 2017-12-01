@@ -14,17 +14,17 @@
 		confirmQuery($show_users);
 
 		while ($row = mysqli_fetch_assoc($show_users)) {
-			$user_id = $row['user_id'];
-			$username = $row['username'];
+			$user_id 		= $row['user_id'];
+			$username 		= $row['username'];
 			$user_firstname = $row['user_firstname'];
-			$user_lastname = $row['user_lastname'];
-			$user_email = $row['user_email'];
-			$user_password = $row['user_password'];
+			$user_lastname 	= $row['user_lastname'];
+			$user_email 	= $row['user_email'];
+			$user_password 	= $row['user_password'];
 
-			$user_image = $row['user_image'];
+			$user_image 	= $row['user_image'];
 
-			$user_email = $row['user_email'];
-			$user_role = $row['user_role'];
+			$user_email 	= $row['user_email'];
+			$user_role 		= $row['user_role'];
 
 		}
 
@@ -32,16 +32,16 @@
 
 		if (isset($_POST['edit_user'])) {
 
-			$username = $_POST['username'];
+			$username 		= $_POST['username'];
 			$user_firstname = $_POST['user_firstname'];
-			$user_lastname = $_POST['user_lastname'];
-			$user_password = $_POST['user_password'];
+			$user_lastname 	= $_POST['user_lastname'];
+			$user_password 	= $_POST['user_password'];
 
 			// $user_image = $_FILES['user_image']['name'];
 			// $post_image_temp = $_FILES['user_image']['tmp_name'];
 
-			$user_email = $_POST['user_email'];
-			$user_role = $_POST['user_role'];
+			$user_email 	= $_POST['user_email'];
+			$user_role 		= $_POST['user_role'];
 
 			if (!empty($user_password)) {
 				$query_password = "SELECT user_password FROM users WHERE user_id = '{$edit_user_id}' ";
